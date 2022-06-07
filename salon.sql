@@ -177,3 +177,106 @@ INSERT INTO public.appointments VALUES (2, 2, 5, '12:40');
 INSERT INTO public.appointments VALUES (3, 3, 4, '9:30');
 INSERT INTO public.appointments VALUES (9, 8, 5, '15:00');
 
+
+--
+-- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.customers VALUES (2, 'Alice', '111-1111');
+INSERT INTO public.customers VALUES (3, 'Mary', '222-2222');
+INSERT INTO public.customers VALUES (8, 'Peter', '123-4567');
+
+
+--
+-- Data for Name: services; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.services VALUES (1, 'cut');
+INSERT INTO public.services VALUES (2, 'color');
+INSERT INTO public.services VALUES (3, 'perm');
+INSERT INTO public.services VALUES (4, 'style');
+INSERT INTO public.services VALUES (5, 'trim');
+
+
+--
+-- Name: appointments_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 15, true);
+
+
+--
+-- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.customers_customer_id_seq', 13, true);
+
+
+--
+-- Name: services_service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.services_service_id_seq', 5, true);
+
+
+--
+-- Name: appointments appointments_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.appointments
+    ADD CONSTRAINT appointments_pkey PRIMARY KEY (appointment_id);
+
+
+--
+-- Name: customers customers_phone_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.customers
+    ADD CONSTRAINT customers_phone_key UNIQUE (phone);
+
+
+--
+-- Name: customers customers_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.customers
+    ADD CONSTRAINT customers_pkey PRIMARY KEY (customer_id);
+
+
+--
+-- Name: services services_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.services
+    ADD CONSTRAINT services_name_key UNIQUE (name);
+
+
+--
+-- Name: services services_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.services
+    ADD CONSTRAINT services_pkey PRIMARY KEY (service_id);
+
+
+--
+-- Name: appointments appointments_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.appointments
+    ADD CONSTRAINT appointments_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.customers(customer_id);
+
+
+--
+-- Name: appointments appointments_service_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.appointments
+    ADD CONSTRAINT appointments_service_id_fkey FOREIGN KEY (service_id) REFERENCES public.services(service_id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+
