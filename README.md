@@ -9,3 +9,5 @@ Files for Projects of FreeCodeCamp
 **Salon Appointment Scheduler**: salon.sql, salon.sh
 
 **Periodic Table Database**: periodic_table.sql, element.sh
+
+**Number Guessing Game**: number_guess.sql file, number_guess.sh
