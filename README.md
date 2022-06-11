@@ -7,3 +7,5 @@ Files for Projects of FreeCodeCamp
 **World Cup Database**: worldcup.sql, insert_data.sh, queries.sh
 
 **Salon Appointment Scheduler**: salon.sql, salon.sh
+
+**Periodic Table Database**: periodic_table.sql, element.sh
